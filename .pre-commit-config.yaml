@@ -1,0 +1,11 @@
+repos:
+  - repo: local
+    hooks:
+      - id: venv-generate-requirements
+        name: Update requirements.txt from venv
+        entry: bash -c '. venv/bin/pip freeze > requerements.txt;
+                        git add requerements.txt'
+        language: system
+        pass_filemanes: false
+        stages: [commit]
+        types: [python]
