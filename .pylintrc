@@ -1,5 +1,12 @@
 [MAIN]
 
+# DESABLE MODULES
+disable = 
+      C0114, # missing-module-docstring
+      E0015, # unrecognized-option
+      E0401, # import-error
+      C0116, # missing-function-docstring
+      C0115, # missing-class-docstring
 # Analyse import fallback blocks. This can be used to support both Python 2 and
 # 3 compatible code, which means that the block might have code that exists
 # only in one or another interpreter, leading to false positives when analysed.

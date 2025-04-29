@@ -1,11 +1,37 @@
-
 repos:
   - repo: local
     hooks:
-      - id: venv-generate-requirements
-        name: Update requirements.txt from venv
-        entry: bash -c '. venv/bin/activate && pip freeze > requirements.txt && git add requirements.txt'
+      - id: black
+        name: black
+        entry: venv/bin/black src/
+        language: system
+        stages: [pre-commit]
+        exclude: ^(?!src/).*  # Exclui arquivos fora da pasta 'src'
+
+  - repo: local
+    hooks:
+      - id: flake8
+        name: flake8
+        entry: venv/bin/flake8 src/
+        language: system
+        stages: [pre-commit]
+        exclude: ^(?!src/).*  # Exclui arquivos fora da pasta 'src'
+
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        language: system
+        entry: venv/bin/pytest -v
+        always_run: true
+        pass_filenames: false
+        stages: [pre-commit]
+
+  - repo: local
+    hooks:
+      - id: requirements
+        name: requirements
+        entry: bash -c 'venv/bin/pip3 freeze > requirements.txt && git add requirements.txt'
         language: system
         pass_filenames: false
         stages: [pre-commit]
-        types: [python]

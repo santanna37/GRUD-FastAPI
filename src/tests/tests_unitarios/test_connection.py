@@ -1,12 +1,14 @@
+# pylint: disable=W0718
+
+from sqlalchemy import text
+
 from src.infra.database.setting.connection import DBConnectionHandler
-from sqlalchemy import text 
 
 
 def test_create_engine_database():
     db_connection = DBConnectionHandler()
     engine = db_connection.get_engine()
     print(engine)
-    
 
 
 def test_work_engine_database():
