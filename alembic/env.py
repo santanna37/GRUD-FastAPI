@@ -1,5 +1,4 @@
-from src.infra.database.setting.base import Base
-from src.infra.database import entities
+# pylint: skip-file
 
 
 from logging.config import fileConfig

@@ -8,8 +8,6 @@ repos:
         stages: [pre-commit]
         exclude: ^(?!src/).*  # Exclui arquivos fora da pasta 'src'
 
-  - repo: local
-    hooks:
       - id: flake8
         name: flake8
         entry: venv/bin/flake8 src/
@@ -17,8 +15,13 @@ repos:
         stages: [pre-commit]
         exclude: ^(?!src/).*  # Exclui arquivos fora da pasta 'src'
 
-  - repo: local
-    hooks:
+      - id: pylint
+        name: pylint
+        entry: venv/bin/pylint src/
+        language: system
+        pass_filenames: false
+        stages: [pre-commit]
+
       - id: pytest
         name: pytest
         language: system
@@ -27,8 +30,6 @@ repos:
         pass_filenames: false
         stages: [pre-commit]
 
-  - repo: local
-    hooks:
       - id: requirements
         name: requirements
         entry: bash -c 'venv/bin/pip3 freeze > requirements.txt && git add requirements.txt'
