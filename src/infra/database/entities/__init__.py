@@ -1,1 +1,1 @@
-from .entities_contador import ContadorEntitie
+from .entities_contador import ContadorEntity

@@ -3,7 +3,7 @@ from sqlalchemy import Column, Integer, String
 from src.infra.database.setting.base import Base
 
 
-class ContadorEntitie(Base):
+class ContadorEntity(Base):
     __tablename__ = "contador"
 
     id = Column(Integer, primary_key=True, autoincrement=True)

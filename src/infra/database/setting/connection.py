@@ -8,10 +8,10 @@ class DBConnectionHandler:
     def __init__(self) -> None:
         self.__connection_string = "mysql+pymysql://root:senha@localhost:3305/public"
 
-        self.__engine = self.__create_database_engine()
+        self.__engine = self.__create_session_engine()
         self.session = None
 
-    def __create_database_engine(self):
+    def __create_session_engine(self):
         engine = create_engine(self.__connection_string)
         return engine
 

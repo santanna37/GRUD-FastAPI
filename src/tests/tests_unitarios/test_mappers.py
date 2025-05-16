@@ -1,6 +1,6 @@
 from src.domain.models.models_contador import ContadorModel
 from src.presentation.mappers.mappers_contador import ContadorMapper
-from src.infra.database.entities.entities_contador import ContadorEntitie
+from src.infra.database.entities.entities_contador import ContadorEntity
 
 
 def test_to_entity():
@@ -10,6 +10,6 @@ def test_to_entity():
 
 
 def test_to_domain():
-    entity = ContadorEntitie(id=1, nome="luiz2", email="teste")
+    entity = ContadorEntity(id=1, nome="luiz2", email="teste")
     model = ContadorMapper.to_domain(entity)
     return print(model)
